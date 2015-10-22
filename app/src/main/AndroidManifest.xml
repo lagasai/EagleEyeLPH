@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".NoMatch" >
         </activity>
+        <activity android:name=".fun" >
+        </activity>
     </application>
 
 </manifest>

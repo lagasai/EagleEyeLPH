@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">EagleEye</string>
+    <string name="no_match_message">The image taken could not be matched to a building. If the
+        building in the picture is at the ERAU Daytona Beach campus, it is likely the image was not
+        clear enough.  Otherwise, the building is not in the database.</string>
+    <string name="another_picture_button">Take Another Picture</string>
+    <string name="quit_button">Quit</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
+
