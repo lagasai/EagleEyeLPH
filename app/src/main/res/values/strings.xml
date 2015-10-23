@@ -6,5 +6,6 @@
     <string name="another_picture_button">Take Another Picture</string>
     <string name="quit_button">Quit</string>
     <string name="title_activity_main">MainActivity</string>
+
 </resources>
 
