@@ -12,12 +12,15 @@ import java.util.Random;
  *
  * @author Robert Waelchli
  * @see BlackBox
- *
  */
 public class BlackBox {
 
+    //this is the public constructor for BlackBox class
+    public BlackBox(){
+    }
+
     //this is the method designed to take in a Uri object and spit out a boolean match or miss
-    public static boolean isMatch(Uri queryImage){
+    public static boolean isMatch(Uri queryImage, Uri referenceImage){
 
         //declare boolean variable
         boolean matchTrueFalse;
