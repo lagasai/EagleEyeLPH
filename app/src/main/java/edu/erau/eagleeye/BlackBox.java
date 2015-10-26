@@ -15,11 +15,18 @@ import java.util.Random;
  */
 public class BlackBox {
 
-    //this is the public constructor for BlackBox class
+    /**
+     * this is the public constructor for BlackBox class
+     */
     public BlackBox(){
     }
 
-    //this is the method designed to take in a Uri object and spit out a boolean match or miss
+     /**
+     * this is the method designed to take in a Uri object and spit out a boolean match or miss
+     * @param queryImage
+     * @param referenceImage
+     * @return returns the boolean value indicating whether a simulated match was achieved
+     */
     public static boolean isMatch(Uri queryImage, Uri referenceImage){
 
         //declare boolean variable
