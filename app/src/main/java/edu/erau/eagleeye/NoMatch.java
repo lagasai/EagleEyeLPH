@@ -14,15 +14,33 @@ public class NoMatch extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Set GUI to correct xml file
         setContentView(R.layout.activity_no_match);
 
+        //Take picture again button listener
         Button newPicButton = (Button) findViewById(R.id.newPicButton);
         newPicButton.setOnClickListener(
+                //Create object of OnClickListener and assign to the Button
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        //This is where I open the OtherActivity by clicking the button
+                        //This is where I reopen the TakePicture by clicking the button
                         Intent myIntent = new Intent(NoMatch.this, TakePicture.class);
-                        NoMatch.this.startActivity(myIntent);
+                        startActivity(myIntent);
+                    }
+                }
+        );
+
+        //Quit button listener
+        Button quitButton = (Button) findViewById(R.id.quitButton);
+        quitButton.setOnClickListener(
+                new Button.OnClickListener() {
+                    //Create object of OnClickListener and assign to the Button
+                    public void onClick(View v) {
+                        //This is where I "close the app" by returning to the home screen
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        startActivity(intent);
                     }
                 }
         );

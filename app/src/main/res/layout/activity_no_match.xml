@@ -42,10 +42,11 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/lehman_new"
+        android:src="@drawable/eagle_eye_logo"
         android:id="@+id/noMatchPic"
         android:layout_below="@+id/noMatchText"
         android:layout_centerHorizontal="true"
-        android:contextClickable="false" />
+        android:contextClickable="false"
+        android:paddingTop="10dp"  />
 
 </RelativeLayout>
