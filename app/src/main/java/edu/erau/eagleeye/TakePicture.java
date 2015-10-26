@@ -7,7 +7,6 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 
 import java.io.File;
 
@@ -44,7 +43,7 @@ public class TakePicture extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == PICTURE_TAKEN && photoFile.exists()) {
+        if (requestCode == PICTURE_TAKEN) {
             if (BlackBox.isMatch(photoUri, photoUri)) {
                 Intent changeToFound = new Intent(this, FoundBuilding.class);
                 startActivity(changeToFound);
