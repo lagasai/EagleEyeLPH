@@ -10,7 +10,11 @@ import java.util.Random;
  * the EagleEye program.
  * @author Robert Waelchli
  * @version 1.0
- * @see BlackBox
+ * @see FoundBuilding
+ * @see INode
+ * @see NoMatch
+ * @see ReferenceImageDatabase
+ * @see TakePicture
  */
 public class BlackBox {
 
