@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.os.Process;
 
 
 
@@ -26,8 +27,8 @@ public class NoMatch extends AppCompatActivity {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         //This is where I reopen the TakePicture by clicking the button
-                        Intent myIntent = new Intent(NoMatch.this, TakePicture.class);
-                        startActivity(myIntent);
+                        Intent takePicIntent = new Intent(NoMatch.this, TakePicture.class);
+                        startActivity(takePicIntent);
                     }
                 }
         );
@@ -39,9 +40,11 @@ public class NoMatch extends AppCompatActivity {
                     //Create object of OnClickListener and assign to the Button
                     public void onClick(View v) {
                         //This is where I "close the app" by returning to the home screen
-                        Intent intent = new Intent(Intent.ACTION_MAIN);
-                        intent.addCategory(Intent.CATEGORY_HOME);
-                        startActivity(intent);
+                        Intent quiterIntent = new Intent(Intent.ACTION_MAIN);
+                        quiterIntent.addCategory(Intent.CATEGORY_HOME);
+                        startActivity(quiterIntent);
+                        //This line actually kills the app (I think)
+                        Process.killProcess(Process.myPid());
                     }
                 }
         );
