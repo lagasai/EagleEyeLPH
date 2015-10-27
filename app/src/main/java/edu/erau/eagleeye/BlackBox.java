@@ -1,18 +1,17 @@
 package edu.erau.eagleeye;
+/**
+ * Date: Oct 27-2015
+ * BlackBox class is a simulation of the 3rd party, pattern matching software that we hope to
+ * purchase or find for later integration.  This is meant to be only a temporary component of
+ * the EagleEye program.
+ * @author Waelchli
+ * @version 1.0
+ * @see BlackBox
+ */
 
 import android.net.Uri;
 import java.util.Random;
 
-/**
- * BlackBox class is a simulation of the 3rd party, pattern matching software
- * this is designed to only be temporary until we can find/license 3rd party software
- *
- * Created by Ian on 10/21/2015
- * Modified by Robert Waelchli on multiple dates
- *
- * @author Robert Waelchli
- * @see BlackBox
- */
 public class BlackBox {
 
     /**
@@ -23,8 +22,8 @@ public class BlackBox {
 
      /**
      * this is the method designed to take in a Uri object and spit out a boolean match or miss
-     * @param queryImage
-     * @param referenceImage
+     * @param queryImage This Uri represents the just taken picture
+     * @param referenceImage This Uri represents the reference image used for comparison
      * @return returns the boolean value indicating whether a simulated match was achieved
      */
     public static boolean isMatch(Uri queryImage, Uri referenceImage){
