@@ -3,8 +3,9 @@ package edu.erau.eagleeye;
 import android.net.Uri;
 
 /**
- * Created by Mike R on 10/6/2015.
- * Edited by James Combs on 10/7/2015
+ * ReferenceImageDatabase is the database that organizes the reference images used for comparison.
+ * @author James Combs
+ * @version 1.0
  */
 public class ReferenceImageDatabase {
 

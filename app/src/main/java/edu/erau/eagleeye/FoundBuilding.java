@@ -5,13 +5,12 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 /**
- * @author Mike Roy
- *
  * This class is an implementation of an activity such that whenever it is called it will display
  * the logo of the application as well as a series of text boxes with values determined by the matching
  * Node previously found by the black box matching method. The string values within the text boxes can be
  * modified by calling the catchBuildingInfo with parameter "INode".
- *
+ * @author Mike Roy
+ * @version 1.0
  */
 public class FoundBuilding extends AppCompatActivity {
 

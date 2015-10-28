@@ -8,14 +8,12 @@ import android.widget.Button;
 import android.os.Process;
 
 /**
- * @author Rebecca Ivans
- * @version 1.0
- *
  * This class, NoMatch, is an activity that displays when no match has been found for the user
  * image.  It displays a short message along with the Eagle Eye logo.  In following versions, the
  * logo will be replaced with the user image.
+ * @author Rebecca Ivans
+ * @version 1.0
  */
-
 public class NoMatch extends AppCompatActivity {
 
     /**
@@ -25,7 +23,6 @@ public class NoMatch extends AppCompatActivity {
      *
      * @param savedInstanceState A Bundle containing the activity's previously frozen state
      */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
