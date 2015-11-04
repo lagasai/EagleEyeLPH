@@ -18,6 +18,11 @@ import java.util.Random;
  */
 public class BlackBox {
 
+    //delcare variables;
+    private String LB="Home to Aerospace Engineering, Engineering Technology, Computing and Mathematics, Physical Sciences, Human Factors and the Center for Aviation and Aerospace Research";
+    private String CAOS="The College of Arts and Sciences is home to the largest university-based research telescope in Florida, weighing in at around 2 tons.";
+    private String ICI="Located on Clyde Morris Boulevard directly across from the campus main entrance, the 50,000-square-foot facility is the centerpiece for campus recreation, athletics, and University functions such as graduation ceremonies, guest speakers, and concerts.";
+
     /**
      * this global variable enables isMatch to return matches only every second time its called
      */
@@ -37,22 +42,25 @@ public class BlackBox {
      */
     public static boolean isMatch(Uri queryImage, Uri referenceImage){
 
+        //Random Mode
         //declare boolean variable
         boolean matchTrueFalse;
 
         //instantiate new Random object
-        //Random decider = new Random();
+        Random decider = new Random();
 
         //assign boolean variable true or false randomly
-        //matchTrueFalse=decider.nextBoolean();
+        matchTrueFalse=decider.nextBoolean();
 
+
+        //Odd or Even Mode
         //assign boolean variable true or false depending if methodCounter variable is odd or even
-        if((methodCounter%2)==0){
-            matchTrueFalse=true;  //return match on even attempts
-        }
-            else{
-            matchTrueFalse=false; //return false on odd attempts
-        }
+        //if((methodCounter%2)==0){
+        //    matchTrueFalse=true;  //return match on even attempts
+        //}
+        //    else{
+        //    matchTrueFalse=false; //return false on odd attempts
+        //}
 
         //update counter
         methodCounter=methodCounter+1;
@@ -60,5 +68,9 @@ public class BlackBox {
         //return true or false value
         return matchTrueFalse;
     }
+
+    /**
+     * private
+     */
 
 }
