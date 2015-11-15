@@ -6,6 +6,8 @@
     <string name="another_picture_button">Take Another Picture</string>
     <string name="quit_button">Quit</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="take_picture_message">Use the button below to take a picture of a building on campus</string>
+    <string name="take_picture_button">Take Picture</string>
 
 </resources>
 
