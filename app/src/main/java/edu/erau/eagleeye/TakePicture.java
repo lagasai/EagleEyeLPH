@@ -48,6 +48,7 @@ public class TakePicture extends AppCompatActivity {
 
         // Adds camera bypass
         ImageView clickPic = (ImageView)findViewById(R.id.eagleEyeLogo);
+        clickPic.setClickable(true);
         clickPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
