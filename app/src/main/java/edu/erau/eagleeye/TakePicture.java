@@ -1,13 +1,19 @@
 package edu.erau.eagleeye;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.io.File;
 
 /**
  * The TakePicture activity is the activity that is displayed when the app launches. It allows the user
@@ -39,6 +45,15 @@ public class TakePicture extends AppCompatActivity {
                 onTakePicturePressed();
             }
         });
+
+        // Adds camera bypass
+        ImageView clickPic = (ImageView)findViewById(R.id.eagleEyeLogo);
+        clickPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cameraBypass();
+            }
+        });
     }
 
     // App Content
@@ -66,20 +81,24 @@ public class TakePicture extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         // Checks that the activity result is the camera intent
-        if (requestCode == PICTURE_TAKEN) {
+        if (requestCode == PICTURE_TAKEN && resultCode != RESULT_CANCELED) {
 
             photoUri = data.getData();
             photoBitmap = (Bitmap)data.getExtras().get("data");
-            // For now, we just have a dummy black box.
-            if (BlackBox.isMatch(photoUri, photoUri)) {
-                Intent changeToFound = new Intent(this, FoundBuilding.class);
-                startActivity(changeToFound);
-            } else {
-                Intent changeToNotFound = new Intent(TakePicture.this, NoMatch.class);
-                TakePicture.this.startActivity(changeToNotFound);
-            }
+            android.widget.Toast.makeText(this, photoUri.toString(), Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    private void cameraBypass() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select photo:")
+                .setItems(new CharSequence[]{"Lehman Building", "Student Center"}, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        android.widget.Toast.makeText(TakePicture.this, Integer.toString(which), Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 
 }
