@@ -9,11 +9,12 @@
     android:background="@color/colorSecondary">
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:src="@drawable/eagle_eye_logo"
         android:layout_gravity="center"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:id="@+id/eagleEyeLogo" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -22,7 +23,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="@string/take_picture_message"
             android:textColor="#ffffff"
             android:textSize="16sp"

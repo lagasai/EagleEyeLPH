@@ -2,7 +2,6 @@ package edu.erau.eagleeye;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
@@ -13,8 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.File;
-
 /**
  * The TakePicture activity is the activity that is displayed when the app launches. It allows the user
  * to capture a picture using the device's default camera app.
@@ -23,10 +20,10 @@ import java.io.File;
  */
 public class TakePicture extends AppCompatActivity {
 
-    private final static int PICTURE_TAKEN = 1;
-    private Button takePictureButton;
-    public Uri photoUri;
-    public Bitmap photoBitmap;
+    private final static int PICTURE_TAKEN = 100;
+    private Uri photoUri;
+    private int drawableID;
+
 
     /**
      * Initializes the activity.
@@ -38,7 +35,7 @@ public class TakePicture extends AppCompatActivity {
         setContentView(R.layout.activity_take_picture);
 
         // Adds listener to Take Picture button.
-        takePictureButton = (Button)findViewById(R.id.takePicture);
+        Button takePictureButton = (Button)findViewById(R.id.takePicture);
         takePictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +45,6 @@ public class TakePicture extends AppCompatActivity {
 
         // Adds camera bypass
         ImageView clickPic = (ImageView)findViewById(R.id.eagleEyeLogo);
-        clickPic.setClickable(true);
         clickPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,8 +81,7 @@ public class TakePicture extends AppCompatActivity {
         if (requestCode == PICTURE_TAKEN && resultCode != RESULT_CANCELED) {
 
             photoUri = data.getData();
-            photoBitmap = (Bitmap)data.getExtras().get("data");
-            android.widget.Toast.makeText(this, photoUri.toString(), Toast.LENGTH_LONG).show();
+
         }
 
     }
@@ -97,9 +92,18 @@ public class TakePicture extends AppCompatActivity {
                 .setItems(new CharSequence[]{"Lehman Building", "Student Center"}, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        android.widget.Toast.makeText(TakePicture.this, Integer.toString(which), Toast.LENGTH_LONG).show();
+                        TakePicture.this.bypassMethod(which);
                     }
                 });
+        builder.create().show();
+    }
+
+    private void bypassMethod(int i) {
+        switch(i) {
+            case 0: drawableID = R.drawable.bypass_lb; break;
+            case 1: drawableID = R.drawable.bypass_sc; break;
+        }
+
     }
 
 }
