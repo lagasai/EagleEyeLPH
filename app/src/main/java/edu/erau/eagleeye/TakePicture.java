@@ -20,10 +20,13 @@ import android.widget.Toast;
  */
 public class TakePicture extends AppCompatActivity {
 
+    //required to use openCV Library
+    static {System.loadLibrary("opencv_java3");}
+
     private final static int PICTURE_TAKEN = 100;
     private Uri photoUri;
     private int drawableID;
-
+    private Comparator c =new Comparator();
 
     /**
      * Initializes the activity.
@@ -82,6 +85,7 @@ public class TakePicture extends AppCompatActivity {
 
             photoUri = data.getData();
 
+
         }
 
     }
@@ -102,7 +106,12 @@ public class TakePicture extends AppCompatActivity {
         switch(i) {
             case 0: drawableID = R.drawable.bypass_lb; break;
             case 1: drawableID = R.drawable.bypass_sc; break;
+
         }
+
+        String toastMessage=c.attemptMatch(this, drawableID);
+
+        Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
 
     }
 
