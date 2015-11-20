@@ -106,12 +106,11 @@ public class TakePicture extends AppCompatActivity {
         switch(i) {
             case 0: drawableID = R.raw.testimagefour; break;
             case 1: drawableID = R.drawable.bypass_sc; break;
-
         }
 
-        String toastMessage=c.attemptMatch(this, drawableID);
-
-        Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
+        c.attemptMatch(this, drawableID);
+        //String toastMessage=c.attemptMatch(this, drawableID);
+        //Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
 
     }
 

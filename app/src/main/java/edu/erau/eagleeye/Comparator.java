@@ -1,6 +1,7 @@
 package edu.erau.eagleeye;
 
 import android.content.Context;
+import android.content.Intent;
 import org.opencv.android.Utils;
 import org.opencv.core.DMatch;
 import org.opencv.core.Mat;
@@ -21,7 +22,7 @@ import java.util.List;
 public class Comparator {
 
     //method that performs the match
-    public String attemptMatch(Context newContext, Integer rfileHandle) {
+    public void attemptMatch(Context newContext, Integer rfileHandle) {
 
         //declare match percent, counter, buildingName string;
         double matchPercent = 10;
@@ -102,17 +103,18 @@ public class Comparator {
             }
 
             if (stateID==100){
-                buildingName="No Match";
+                Intent noMatchIntent = new Intent(newContext, NoMatch.class);
+                newContext.startActivity(noMatchIntent);
             }else {
                 buildingName = nRFD.askMeANumberAndIllGiveYouAString(nRFD.referenceImages[a][1]);
+                Intent matchIntent = new Intent(newContext, FoundBuilding.class);
+                newContext.startActivity(matchIntent);
             }
-            return buildingName;
+            //return buildingName;
 
         } catch (IOException e) {
             System.out.println("IOException Thrown and Caught:  " + e);
-            return buildingName = "Sorry there was an unexpected error.";
         }
 
     }
-
 }
