@@ -107,10 +107,11 @@ public class Comparator {
                 newContext.startActivity(noMatchIntent);
             }else {
                 buildingName = nRFD.askMeANumberAndIllGiveYouAString(nRFD.referenceImages[a][1]);
+                FoundBuilding.BuildingName=(buildingName);
+                FoundBuilding.BuildingRemark=("Home to Aerospace Engineering, Engineering Technology, Computing and Mathematics, Physical Sciences, Human Factors and the Center for Aviation and Aerospace Research");
                 Intent matchIntent = new Intent(newContext, FoundBuilding.class);
                 newContext.startActivity(matchIntent);
             }
-            //return buildingName;
 
         } catch (IOException e) {
             System.out.println("IOException Thrown and Caught:  " + e);

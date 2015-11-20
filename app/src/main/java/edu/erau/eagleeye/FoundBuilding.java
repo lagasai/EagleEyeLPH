@@ -16,13 +16,20 @@ public class FoundBuilding extends AppCompatActivity {
 
     //these are variables that will be used to store the name and building remark used by the
     //activity as part of the output to the user.
-    public String BuildingName;
-    public String BuildingRemark;
+    public static String BuildingName;
+    public static String BuildingRemark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_found_building);
+
+        TextView buildingNameBox = (TextView)findViewById(R.id.buildingName);
+        TextView buildingRemarkBox = (TextView)findViewById(R.id.remarks);
+
+        //sets the text boxes to the value held within the variables
+        buildingNameBox.setText(BuildingName);
+        buildingRemarkBox.setText(BuildingRemark);
     }
 
     /**
@@ -42,14 +49,14 @@ public class FoundBuilding extends AppCompatActivity {
 
         //calls method to set the value of the text boxes to reflect the information of the matched
         //building
-        setTextBoxes();
+        setTextBoxes("a", "b");
     }
 
     /**
      * This method is called whenever the values store in the variables buildingName and buildingRemark
      * are wished to be loaded into the text boxes present within this activity.
      */
-    public void setTextBoxes(){
+    public void setTextBoxes(String name, String remark){
         //create objects corresponding to each text box on this activity that need to be defined
         TextView buildingNameBox = (TextView)findViewById(R.id.buildingName);
         TextView buildingRemarkBox = (TextView)findViewById(R.id.remarks);
@@ -57,6 +64,5 @@ public class FoundBuilding extends AppCompatActivity {
         //sets the text boxes to the value held within the variables
         buildingNameBox.setText(BuildingName);
         buildingRemarkBox.setText(BuildingRemark);
-
     }
 }
