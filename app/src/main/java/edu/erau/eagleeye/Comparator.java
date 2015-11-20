@@ -26,6 +26,7 @@ public class Comparator {
         //declare match percent, counter, buildingName string;
         double matchPercent = 10;
         int a = 0;
+        int stateID = 0;
         String buildingName;
 
         //a new instance of the reference database
@@ -51,51 +52,60 @@ public class Comparator {
             //Extract descriptors from the image
             extractor.compute(img1, k1, d1);
 
-            //Begin loop for matching
-            while (matchPercent < 40) {
+            while (matchPercent < 100 && stateID!=100 && stateID!=50) {
 
-                //initialize counter
-                int b = 0;
+                    //initialize counter
+                    int b = 0;
 
-                //load reference image
-                Mat img2 = Utils.loadResource(newContext, nRFD.referenceImages[a][0], Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
+                    //load reference image
+                    Mat img2 = Utils.loadResource(newContext, nRFD.referenceImages[a][0], Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
 
-                //Initialize key features matrix
-                MatOfKeyPoint k2 = new MatOfKeyPoint();
+                    //Initialize key features matrix
+                    MatOfKeyPoint k2 = new MatOfKeyPoint();
 
-                //Initialize descriptor matrix
-                Mat d2 = new Mat();
+                    //Initialize descriptor matrix
+                    Mat d2 = new Mat();
 
-                //Detect the key features of the reference images
-                detector.detect(img2, k2);
+                    //Detect the key features of the reference images
+                    detector.detect(img2, k2);
 
-                //Extract the descriptors from the image
-                extractor.compute(img2, k2, d2);
+                    //Extract the descriptors from the image
+                    extractor.compute(img2, k2, d2);
 
-                //Match points of two images
-                matcher.match(d1, d2, matches);
+                    //Match points of two images
+                    matcher.match(d1, d2, matches);
 
-                List<DMatch> matchesDMatch = matches.toList();
-                ArrayList<Float> goodMatches = new ArrayList<>();
+                    List<DMatch> matchesDMatch = matches.toList();
+                    ArrayList<Float> goodMatches = new ArrayList<>();
 
-                while (b < matches.height()) {
+                    while (b < matches.height()) {
 
-                    int c = Math.round(matchesDMatch.get(b).distance);
-                    if (c < 55) {
-                        goodMatches.add(matchesDMatch.get(b).distance);
+                        int c = Math.round(matchesDMatch.get(b).distance);
+                        if (c < 55) {
+                            goodMatches.add(matchesDMatch.get(b).distance);
+                        }
+
+                        b = b + 1;
                     }
 
-                    b = b + 1;
+                    //Advance through the reference photo array
+                    a = a + 1;
+                    matchPercent = goodMatches.size();
 
-                }
-
-                //Advance through the reference photo array
-                a = a + 1;
-                matchPercent = goodMatches.size();
-
+                    //break the while loop if a match is found or at the end of the reference array
+                    if (a==8&&goodMatches.size()<=100){
+                        stateID=100;
+                    }
+                    if (goodMatches.size()>100){
+                        stateID=50;
+                    }
             }
 
-            buildingName=nRFD.askMeANumberAndIllGiveYouAString(nRFD.referenceImages[a][1]);
+            if (stateID==100){
+                buildingName="No Match";
+            }else {
+                buildingName = nRFD.askMeANumberAndIllGiveYouAString(nRFD.referenceImages[a][1]);
+            }
             return buildingName;
 
         } catch (IOException e) {

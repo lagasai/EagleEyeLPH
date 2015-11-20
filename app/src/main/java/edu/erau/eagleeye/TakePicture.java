@@ -104,7 +104,7 @@ public class TakePicture extends AppCompatActivity {
 
     private void bypassMethod(int i) {
         switch(i) {
-            case 0: drawableID = R.drawable.bypass_lb; break;
+            case 0: drawableID = R.raw.testimagefour; break;
             case 1: drawableID = R.drawable.bypass_sc; break;
 
         }
