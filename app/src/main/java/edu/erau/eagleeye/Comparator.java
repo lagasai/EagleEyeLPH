@@ -109,6 +109,7 @@ public class Comparator {
                 buildingName = nRFD.askMeANumberAndIllGiveYouAString(nRFD.referenceImages[a][1]);
                 FoundBuilding.BuildingName=(buildingName);
                 FoundBuilding.BuildingRemark=("Home to Aerospace Engineering, Engineering Technology, Computing and Mathematics, Physical Sciences, Human Factors and the Center for Aviation and Aerospace Research");
+                FoundBuilding.referencePic=R.drawable.lb;
                 Intent matchIntent = new Intent(newContext, FoundBuilding.class);
                 newContext.startActivity(matchIntent);
             }

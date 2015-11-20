@@ -13,12 +13,14 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="&lt;remarks>"
+        android:textSize="12dp"
         android:id="@+id/remarks"
         android:singleLine="false"
-        android:layout_below="@+id/buildingName"
+        android:background="#3F51B5"
+        android:textAlignment="center"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp"
-        android:background="#ffb219" />
+        android:layout_marginBottom="61dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -29,7 +31,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="51dp"
-        android:background="#ffb219" />
+        android:background="#3F51B5" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,20 +39,29 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="&lt;building name>"
         android:id="@+id/buildingName"
+        android:background="#3F51B5"
         android:layout_below="@+id/header"
-        android:layout_centerHorizontal="true"
-        android:background="#ffb219" />
+        android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/eagle_eye_logo"
-        android:id="@+id/imageView"
-        android:contextClickable="false"
-        android:paddingTop="10dp"
-        android:layout_below="@+id/remarks"
-        android:layout_alignLeft="@+id/buildingName"
-        android:layout_alignStart="@+id/buildingName"
-        android:layout_marginTop="58dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/remarks"
+        android:layout_below="@+id/buildingName">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/eagle_eye_logo"
+            android:id="@+id/referencePicture"
+            android:contextClickable="false"
+            android:paddingTop="10dp"
+            android:adjustViewBounds="false"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 </RelativeLayout>

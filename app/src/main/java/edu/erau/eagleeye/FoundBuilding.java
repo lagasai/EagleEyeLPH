@@ -2,6 +2,7 @@ package edu.erau.eagleeye;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -18,6 +19,7 @@ public class FoundBuilding extends AppCompatActivity {
     //activity as part of the output to the user.
     public static String BuildingName;
     public static String BuildingRemark;
+    public static Integer referencePic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +28,12 @@ public class FoundBuilding extends AppCompatActivity {
 
         TextView buildingNameBox = (TextView)findViewById(R.id.buildingName);
         TextView buildingRemarkBox = (TextView)findViewById(R.id.remarks);
+        ImageView referenceBuilding= (ImageView)findViewById(R.id.referencePicture);
 
         //sets the text boxes to the value held within the variables
         buildingNameBox.setText(BuildingName);
         buildingRemarkBox.setText(BuildingRemark);
+        referenceBuilding.setImageResource(referencePic);
     }
 
     /**
