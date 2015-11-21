@@ -109,8 +109,6 @@ public class TakePicture extends AppCompatActivity {
         }
 
         c.attemptMatch(this, drawableID);
-        //String toastMessage=c.attemptMatch(this, drawableID);
-        //Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
 
     }
 

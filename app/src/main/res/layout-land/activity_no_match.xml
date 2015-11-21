@@ -1,46 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@color/colorSecondary">
+    android:background="@color/colorSecondary"
+    tools:context=".NoMatch" >
 
     <ImageView
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:src="@drawable/eagle_eye_logo_big"
-        android:layout_gravity="center"
         android:layout_weight="1"
-        android:id="@+id/eagleEyeLogo" />
+        android:layout_gravity="center"
+        android:id="@+id/noMatchPic" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="@string/take_picture_message"
+            android:layout_weight="1"
             android:textColor="#ffffff"
             android:textSize="16sp"
             android:gravity="center"
-            android:maxEms="15"
-            android:layout_weight="1"/>
+            android:text="@string/no_match_message" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/take_picture_button"
+            android:text="@string/go_back_button"
             android:padding="16dp"
             android:textSize="16sp"
             android:background="@color/colorAccent"
             android:textColor="#ffffff"
-            android:id="@+id/takePicture" />
+            android:id="@+id/goBackButton" />
 
     </LinearLayout>
 

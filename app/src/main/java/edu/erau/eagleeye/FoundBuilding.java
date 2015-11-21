@@ -2,6 +2,8 @@ package edu.erau.eagleeye;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,13 +36,23 @@ public class FoundBuilding extends AppCompatActivity {
         buildingNameBox.setText(BuildingName);
         buildingRemarkBox.setText(BuildingRemark);
         referenceBuilding.setImageResource(referencePic);
+
+        // Adds listener to Take Another Picture button.
+        Button goBackButton = (Button)findViewById(R.id.goBackButton);
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     /**
      * This method catches the node object that has been detected as a match. Then sets the
      * variables for the building name and building remark to match those that are contained by the
      * node object.
-     * @param matchingNode
+     * @param matchingNode: INode
      */
     public void catchBuildingInfo (INode matchingNode){
 

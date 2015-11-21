@@ -13,11 +13,11 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:id="@+id/eagleEyeLogo"
         android:layout_gravity="center"
-        android:layout_weight="2"
-        android:src="@drawable/eagle_eye_logo" />
+        android:layout_weight="3"
+        android:src="@drawable/eagle_eye_logo_big" />
 
     <TextView
         android:layout_width="match_parent"

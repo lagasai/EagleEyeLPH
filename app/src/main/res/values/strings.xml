@@ -8,6 +8,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="take_picture_message">Use the button below to take a picture of a building on campus</string>
     <string name="take_picture_button">Take Picture</string>
+    <string name="go_back_button">Take Another Picture</string>
 
 </resources>
 
