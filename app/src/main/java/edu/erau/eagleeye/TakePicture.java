@@ -26,7 +26,7 @@ public class TakePicture extends AppCompatActivity {
     private final static int PICTURE_TAKEN = 100;
     private Uri photoUri;
     private int drawableID;
-    private Comparator c =new Comparator();
+    private Comparator c=new Comparator();
 
     /**
      * Initializes the activity.
@@ -70,7 +70,7 @@ public class TakePicture extends AppCompatActivity {
 
     /**
      * This will handle the result of the camera intent. It saves the URI of the image and a bitmap
-     * thumbnail to this class' attributes, and it tells the BlackBox to compare the images.
+     * thumbnail to this class' attributes, and it tells the Comparator object to compare the images.
      * @param requestCode: int
      * @param resultCode: int
      * @param data: Intent
@@ -84,7 +84,7 @@ public class TakePicture extends AppCompatActivity {
         if (requestCode == PICTURE_TAKEN && resultCode != RESULT_CANCELED) {
 
             photoUri = data.getData();
-
+            c.attemptMatch(this,photoUri);
 
         }
 
