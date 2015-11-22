@@ -21,6 +21,8 @@ import android.widget.Toast;
 public class NoMatch extends AppCompatActivity {
 
     public static Uri queryImage;
+    public static Integer testQueryImage;
+    public static boolean testImage;
 
     /**
      * This method overrides the onCreate method from AppCompatActivity.  It sets the content view
@@ -38,7 +40,12 @@ public class NoMatch extends AppCompatActivity {
 
         //Set ImageView to display the queryImage Uri
         ImageView noMatchPic = (ImageView)findViewById(R.id.noMatchPic);
-        noMatchPic.setImageURI(queryImage);
+
+        if (testImage=true){
+            noMatchPic.setImageResource(testQueryImage);
+        }else{
+            noMatchPic.setImageURI(queryImage);
+        }
 
         // Adds listener to Take Another Picture button.
         Button goBackButton = (Button)findViewById(R.id.goBackButton);

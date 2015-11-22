@@ -22,7 +22,7 @@ import java.util.List;
 
 public class Comparator {
 
-    //method that performs the match if passed a context and an rfileHandle
+    //method that performs the match if passed a context and an r file handle in a test
     public void attemptMatch(Context newContext, Integer rfileHandle) {
 
         //declare match percent, counter, buildingName string;
@@ -95,7 +95,7 @@ public class Comparator {
                     matchPercent = goodMatches.size();
 
                     //break the while loop if a match is found or at the end of the reference array
-                    if (a==8&&goodMatches.size()<=100){
+                    if (a==24&&goodMatches.size()<=100){
                         stateID=100;
                     }
                     if (goodMatches.size()>100){
@@ -104,6 +104,9 @@ public class Comparator {
             }
 
             if (stateID==100){
+                NoMatch.testImage=true;
+                NoMatch.queryImage=null;
+                NoMatch.testQueryImage=rfileHandle;
                 Intent noMatchIntent = new Intent(newContext, NoMatch.class);
                 newContext.startActivity(noMatchIntent);
             }else {
@@ -194,7 +197,7 @@ public class Comparator {
                 matchPercent = goodMatches.size();
 
                 //break the while loop if a match is found or at the end of the reference array
-                if (a==25&&goodMatches.size()<=100){
+                if (a==24&&goodMatches.size()<=100){
                     stateID=100;
                 }
                 if (goodMatches.size()>100){
@@ -204,7 +207,9 @@ public class Comparator {
 
             if (stateID==100){
                 Intent noMatchIntent = new Intent(newContext, NoMatch.class);
+                NoMatch.testImage=false;
                 NoMatch.queryImage=queryPicture;
+                NoMatch.testQueryImage=null;
                 newContext.startActivity(noMatchIntent);
             }else {
                 buildingName = nRFD.askMeANumberAndIllGiveYouAString(nRFD.referenceImages[a][1]);
