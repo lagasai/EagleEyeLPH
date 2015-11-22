@@ -25,7 +25,7 @@ public class Splash extends AppCompatActivity {
 
         //Create objects for image and animation
         final ImageView splashImage = (ImageView) findViewById(R.id.splashImage);
-        final Animation fadeOutAnim = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fade_out);
+        final Animation fadeOutAnim = AnimationUtils.loadAnimation(getBaseContext(),R.anim.rotate);
 
         //Start animation for the image
         splashImage.startAnimation(fadeOutAnim);
