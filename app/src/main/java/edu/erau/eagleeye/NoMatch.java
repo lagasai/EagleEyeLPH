@@ -1,6 +1,8 @@
 package edu.erau.eagleeye;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +13,10 @@ import android.os.Process;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 /**
  * This class, NoMatch, is an activity that displays when no match has been found for the user
  * image.  It displays a short message along with the Eagle Eye logo.  In following versions, the
@@ -20,9 +26,9 @@ import android.widget.Toast;
  */
 public class NoMatch extends AppCompatActivity {
 
-    public static Uri queryImage;
     public static Integer testQueryImage;
     public static boolean testImage;
+    public static Bitmap queryImageSmall;
 
     /**
      * This method overrides the onCreate method from AppCompatActivity.  It sets the content view
@@ -41,10 +47,10 @@ public class NoMatch extends AppCompatActivity {
         //Set ImageView to display the queryImage Uri
         ImageView noMatchPic = (ImageView)findViewById(R.id.noMatchPic);
 
-        if (testImage=true){
+        if (testImage){
             noMatchPic.setImageResource(testQueryImage);
         }else{
-            noMatchPic.setImageURI(queryImage);
+            noMatchPic.setImageBitmap(queryImageSmall);
         }
 
         // Adds listener to Take Another Picture button.

@@ -2,6 +2,7 @@ package edu.erau.eagleeye;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import org.opencv.android.Utils;
 import org.opencv.core.DMatch;
@@ -105,7 +106,7 @@ public class Comparator {
 
             if (stateID==100){
                 NoMatch.testImage=true;
-                NoMatch.queryImage=null;
+                NoMatch.queryImageSmall=null;
                 NoMatch.testQueryImage=rfileHandle;
                 Intent noMatchIntent = new Intent(newContext, NoMatch.class);
                 newContext.startActivity(noMatchIntent);
@@ -125,7 +126,7 @@ public class Comparator {
     }
 
     //method that performs the mathc if passed a context and a file location
-    public void attemptMatch(Context newContext, Uri queryPicture) {
+    public void attemptMatch(Context newContext, Uri queryPicture, Bitmap queryImageSmall) {
 
         //declare match percent, counter, buildingName string;
         double matchPercent = 10;
@@ -208,7 +209,7 @@ public class Comparator {
             if (stateID==100){
                 Intent noMatchIntent = new Intent(newContext, NoMatch.class);
                 NoMatch.testImage=false;
-                NoMatch.queryImage=queryPicture;
+                NoMatch.queryImageSmall=queryImageSmall;
                 NoMatch.testQueryImage=null;
                 newContext.startActivity(noMatchIntent);
             }else {

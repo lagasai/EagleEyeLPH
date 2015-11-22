@@ -2,6 +2,7 @@ package edu.erau.eagleeye;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
@@ -83,7 +84,8 @@ public class TakePicture extends AppCompatActivity {
         if (requestCode == PICTURE_TAKEN && resultCode != RESULT_CANCELED) {
 
             photoUri = data.getData();
-            c.attemptMatch(this,photoUri);
+            Bitmap samplePhotoBitmap=(Bitmap) data.getExtras().get("data");
+            c.attemptMatch(this,photoUri,samplePhotoBitmap);
 
         }
 
