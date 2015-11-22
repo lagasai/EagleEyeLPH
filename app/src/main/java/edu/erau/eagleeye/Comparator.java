@@ -194,7 +194,7 @@ public class Comparator {
                 matchPercent = goodMatches.size();
 
                 //break the while loop if a match is found or at the end of the reference array
-                if (a==8&&goodMatches.size()<=100){
+                if (a==25&&goodMatches.size()<=100){
                     stateID=100;
                 }
                 if (goodMatches.size()>100){
@@ -204,6 +204,7 @@ public class Comparator {
 
             if (stateID==100){
                 Intent noMatchIntent = new Intent(newContext, NoMatch.class);
+                NoMatch.queryImage=queryPicture;
                 newContext.startActivity(noMatchIntent);
             }else {
                 buildingName = nRFD.askMeANumberAndIllGiveYouAString(nRFD.referenceImages[a][1]);

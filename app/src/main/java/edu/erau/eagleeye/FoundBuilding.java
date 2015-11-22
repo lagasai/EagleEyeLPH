@@ -30,7 +30,7 @@ public class FoundBuilding extends AppCompatActivity {
 
         TextView buildingNameBox = (TextView)findViewById(R.id.buildingName);
         TextView buildingRemarkBox = (TextView)findViewById(R.id.remarks);
-        ImageView referenceBuilding= (ImageView)findViewById(R.id.referencePicture);
+        ImageView referenceBuilding = (ImageView)findViewById(R.id.referencePicture);
 
         //sets the text boxes to the value held within the variables
         buildingNameBox.setText(BuildingName);

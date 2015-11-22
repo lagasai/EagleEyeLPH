@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 /**
  * The TakePicture activity is the activity that is displayed when the app launches. It allows the user
@@ -104,7 +103,7 @@ public class TakePicture extends AppCompatActivity {
 
     private void bypassMethod(int i) {
         switch(i) {
-            case 0: drawableID = R.raw.testimagefour; break;
+            case 0: drawableID = R.drawable.bypass_lb; break;
             case 1: drawableID = R.drawable.bypass_sc; break;
         }
 

@@ -10,7 +10,7 @@ import android.net.Uri;
 public class ReferenceImageDatabase {
 
     //declare the reference image array
-    public Integer[][] referenceImages=new Integer[8][2];
+    public Integer[][] referenceImages=new Integer[24][2];
 
     //Class attributes
     //INode root: First INode in the queue
@@ -57,22 +57,54 @@ public class ReferenceImageDatabase {
     public void populate(){
 
         //populate the reference image array
-        this.referenceImages[0][0] = R.raw.testimageone;
-        this.referenceImages[0][1] = 100;
-        this.referenceImages[1][0] = R.raw.testimagetwo;
-        this.referenceImages[1][1] = 200;
-        this.referenceImages[2][0] = R.raw.testimagethree;
+        this.referenceImages[0][0] = R.raw.lb01;
+        this.referenceImages[0][1] = 300;
+        this.referenceImages[1][0] = R.raw.lb02;
+        this.referenceImages[1][1] = 300;
+        this.referenceImages[2][0] = R.raw.lb03;
         this.referenceImages[2][1] = 300;
-        this.referenceImages[3][0] = R.raw.testimageone;
+        this.referenceImages[3][0] = R.raw.lb04;
         this.referenceImages[3][1] = 300;
-        this.referenceImages[4][0] = R.raw.testimagefive;
+        this.referenceImages[4][0] = R.raw.lb05;
         this.referenceImages[4][1] = 300;
-        this.referenceImages[5][0] = R.raw.testimagesix;
+        this.referenceImages[5][0] = R.raw.lb06;
         this.referenceImages[5][1] = 300;
-        this.referenceImages[6][0] = R.raw.testimageseven;
-        this.referenceImages[6][1] = 400;
-        this.referenceImages[7][0] = R.raw.testimageeight;
-        this.referenceImages[7][1] = 500;
+        this.referenceImages[6][0] = R.raw.lb07;
+        this.referenceImages[6][1] = 300;
+        this.referenceImages[7][0] = R.raw.lb08;
+        this.referenceImages[7][1] = 300;
+        this.referenceImages[8][0] = R.raw.lb09;
+        this.referenceImages[8][1] = 300;
+        this.referenceImages[9][0] = R.raw.lb10;
+        this.referenceImages[9][1] = 300;
+        this.referenceImages[10][0] = R.raw.lb11;
+        this.referenceImages[10][1] = 300;
+        this.referenceImages[11][0] = R.raw.lb12;
+        this.referenceImages[11][1] = 300;
+        this.referenceImages[12][0] = R.raw.lb13;
+        this.referenceImages[12][1] = 300;
+        this.referenceImages[13][0] = R.raw.lb14;
+        this.referenceImages[13][1] = 300;
+        this.referenceImages[14][0] = R.raw.lb15;
+        this.referenceImages[14][1] = 300;
+        this.referenceImages[15][0] = R.raw.lb16;
+        this.referenceImages[15][1] = 300;
+        this.referenceImages[16][0] = R.raw.lb17;
+        this.referenceImages[16][1] = 300;
+        this.referenceImages[17][0] = R.raw.lb18;
+        this.referenceImages[17][1] = 300;
+        this.referenceImages[18][0] = R.raw.lb19;
+        this.referenceImages[18][1] = 300;
+        this.referenceImages[19][0] = R.raw.lb20;
+        this.referenceImages[19][1] = 300;
+        this.referenceImages[20][0] = R.raw.lb21;
+        this.referenceImages[20][1] = 300;
+        this.referenceImages[21][0] = R.raw.lb22;
+        this.referenceImages[21][1] = 300;
+        this.referenceImages[22][0] = R.raw.lb23;
+        this.referenceImages[22][1] = 300;
+        this.referenceImages[23][0] = R.raw.lb24;
+        this.referenceImages[23][1] = 300;
     }
 
     public String askMeANumberAndIllGiveYouAString(Integer i){
@@ -80,9 +112,9 @@ public class ReferenceImageDatabase {
 
         switch (i){
 
-            case 100: buildingName="Chrysler Building";
+            case 100: buildingName="Student Center";
                 break;
-            case 200: buildingName="Sears Tower";
+            case 200: buildingName="I.C. Center";
                 break;
             case 300: buildingName="Lehman Building";
                 break;

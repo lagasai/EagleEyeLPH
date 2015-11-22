@@ -2,6 +2,7 @@ package edu.erau.eagleeye;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +20,8 @@ import android.widget.Toast;
  */
 public class NoMatch extends AppCompatActivity {
 
+    public static Uri queryImage;
+
     /**
      * This method overrides the onCreate method from AppCompatActivity.  It sets the content view
      * to the correct layout, activity_no_match.xml, and provides listeners for the "Take Another
@@ -32,6 +35,10 @@ public class NoMatch extends AppCompatActivity {
 
         //Set GUI to correct xml file
         setContentView(R.layout.activity_no_match);
+
+        //Set ImageView to display the queryImage Uri
+        ImageView noMatchPic = (ImageView)findViewById(R.id.noMatchPic);
+        noMatchPic.setImageURI(queryImage);
 
         // Adds listener to Take Another Picture button.
         Button goBackButton = (Button)findViewById(R.id.goBackButton);
