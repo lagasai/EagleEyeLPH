@@ -10,7 +10,7 @@ import android.net.Uri;
 public class ReferenceImageDatabase {
 
     //declare the reference image array
-    public Integer[][] referenceImages=new Integer[24][2];
+    public Integer[][] referenceImages=new Integer[30][2];
 
     //Class attributes
     //INode root: First INode in the queue
@@ -105,6 +105,18 @@ public class ReferenceImageDatabase {
         this.referenceImages[22][1] = 300;
         this.referenceImages[23][0] = R.raw.lb24;
         this.referenceImages[23][1] = 300;
+        this.referenceImages[24][0] = R.raw.lb25;
+        this.referenceImages[24][1] = 300;
+        this.referenceImages[25][0] = R.raw.lb26;
+        this.referenceImages[25][1] = 300;
+        this.referenceImages[26][0] = R.raw.lb27;
+        this.referenceImages[26][1] = 300;
+        this.referenceImages[27][0] = R.raw.lb28;
+        this.referenceImages[27][1] = 300;
+        this.referenceImages[28][0] = R.raw.lb29;
+        this.referenceImages[28][1] = 300;
+        this.referenceImages[29][0] = R.raw.lb30;
+        this.referenceImages[29][1] = 300;
     }
 
     public String askMeANumberAndIllGiveYouAString(Integer i){

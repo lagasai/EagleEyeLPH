@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.widget.Toast;
+
 import org.opencv.android.Utils;
 import org.opencv.core.DMatch;
 import org.opencv.core.Mat;
@@ -96,7 +98,7 @@ public class Comparator {
                     matchPercent = goodMatches.size();
 
                     //break the while loop if a match is found or at the end of the reference array
-                    if (a==24&&goodMatches.size()<=100){
+                    if (a==30&&goodMatches.size()<=100){
                         stateID=100;
                     }
                     if (goodMatches.size()>100){
@@ -125,7 +127,7 @@ public class Comparator {
 
     }
 
-    //method that performs the mathc if passed a context and a file location
+    //method that performs the match if passed a context and a file location
     public void attemptMatch(Context newContext, Uri queryPicture, Bitmap queryImageSmall) {
 
         //declare match percent, counter, buildingName string;
@@ -149,7 +151,8 @@ public class Comparator {
         try {
 
             //load the sample image from the drawable directory
-            Mat img1 = Imgcodecs.imread(queryPicture.toString(), Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
+            Mat img1 = new Mat();
+            Utils.bitmapToMat(queryImageSmall, img1);
 
             //Detect the key features of the image
             detector.detect(img1, k1);
@@ -197,8 +200,10 @@ public class Comparator {
                 a = a + 1;
                 matchPercent = goodMatches.size();
 
+                System.out.println(matchPercent);
+
                 //break the while loop if a match is found or at the end of the reference array
-                if (a==24&&goodMatches.size()<=100){
+                if (a==30&&goodMatches.size()<=100){
                     stateID=100;
                 }
                 if (goodMatches.size()>100){

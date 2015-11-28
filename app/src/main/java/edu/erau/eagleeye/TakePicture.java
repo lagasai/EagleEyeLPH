@@ -84,9 +84,12 @@ public class TakePicture extends AppCompatActivity {
         if (requestCode == PICTURE_TAKEN && resultCode != RESULT_CANCELED) {
 
             photoUri = data.getData();
-            Bitmap samplePhotoBitmap=(Bitmap) data.getExtras().get("data");
-            c.attemptMatch(this,photoUri,samplePhotoBitmap);
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
+                c.attemptMatch(this, photoUri, bitmap);
+            } catch (Exception e) {
 
+            }
         }
 
     }
