@@ -8,12 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * This class is an implementation of an activity such that whenever it is called it will display
- * the logo of the application as well as a series of text boxes with values determined by the matching
- * Node previously found by the black box matching method. The string values within the text boxes can be
- * modified by calling the catchBuildingInfo with parameter "INode".
- * @author Mike Roy
- * @version 1.0
+ * This activity is displayed upon a successful match. It shows the user a representative image of the
+ * matched building, provides the name of the building, and provides a helpful fact about the building.
+ * @author Los Pollos Hermanos
+ * @version S2
  */
 public class FoundBuilding extends AppCompatActivity {
 
@@ -23,6 +21,10 @@ public class FoundBuilding extends AppCompatActivity {
     public static String BuildingRemark;
     public static Integer referencePic;
 
+    /**
+     * Initializes the activity.
+     * @param savedInstanceState Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,7 @@ public class FoundBuilding extends AppCompatActivity {
      * This method catches the node object that has been detected as a match. Then sets the
      * variables for the building name and building remark to match those that are contained by the
      * node object.
-     * @param matchingNode: INode
+     * @param matchingNode INode
      */
     public void catchBuildingInfo (INode matchingNode){
 
@@ -71,6 +73,8 @@ public class FoundBuilding extends AppCompatActivity {
     /**
      * This method is called whenever the values store in the variables buildingName and buildingRemark
      * are wished to be loaded into the text boxes present within this activity.
+     * @param name String
+     * @param remark String
      */
     public void setTextBoxes(String name, String remark){
         //create objects corresponding to each text box on this activity that need to be defined

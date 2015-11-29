@@ -14,13 +14,15 @@ import android.widget.ImageView;
 
 /**
  * The TakePicture activity is the activity that is displayed when the app launches. It allows the user
- * to capture a picture using the device's default camera app.
+ * to capture a picture using the device's default camera app. For testing purposes, tapping the logo
+ * allows the user to bypass the camera and send a pretaken picture directly to Comaprator.
  *
- * @author Ian LaGasa
+ * @author Los Pollos Hermanos
+ * @version S2
  */
 public class TakePicture extends AppCompatActivity {
 
-    //required to use openCV Library
+    // Required to use openCV Library.
     static {System.loadLibrary("opencv_java3");}
 
     private final static int PICTURE_TAKEN = 100;
@@ -30,7 +32,7 @@ public class TakePicture extends AppCompatActivity {
 
     /**
      * Initializes the activity.
-     * @param savedInstanceState: Bundle
+     * @param savedInstanceState Bundle
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +72,10 @@ public class TakePicture extends AppCompatActivity {
 
     /**
      * This will handle the result of the camera intent. It saves the URI of the image and a bitmap
-     * thumbnail to this class' attributes, and it tells the Comparator object to compare the images.
-     * @param requestCode: int
-     * @param resultCode: int
-     * @param data: Intent
+     * thumbnail to this class' attributes, and it tells the Comparator to find a match for the captured photo.
+     * @param requestCode int
+     * @param resultCode int
+     * @param data Intent
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -94,6 +96,10 @@ public class TakePicture extends AppCompatActivity {
 
     }
 
+    /**
+     * This method provides a menu to bypass taking an image with the device's camera and instead performing
+     * a comparison with a pretaken photo.
+     */
     private void cameraBypass() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select photo:")
@@ -106,6 +112,10 @@ public class TakePicture extends AppCompatActivity {
         builder.create().show();
     }
 
+    /**
+     * This method sends the requested image via the bypass menu to the Comparator.
+     * @param i int
+     */
     private void bypassMethod(int i) {
         switch(i) {
             case 0: drawableID = R.drawable.bypass_lb; break;

@@ -19,10 +19,9 @@ import java.io.OutputStream;
 
 /**
  * This class, NoMatch, is an activity that displays when no match has been found for the user
- * image.  It displays a short message along with the Eagle Eye logo.  In following versions, the
- * logo will be replaced with the user image.
- * @author Rebecca Ivans
- * @version 1.0
+ * image.  It displays a short message along with the captured image.
+ * @author Los Pollos Hermanos
+ * @version S2
  */
 public class NoMatch extends AppCompatActivity {
 
@@ -31,11 +30,9 @@ public class NoMatch extends AppCompatActivity {
     public static Bitmap queryImageSmall;
 
     /**
-     * This method overrides the onCreate method from AppCompatActivity.  It sets the content view
-     * to the correct layout, activity_no_match.xml, and provides listeners for the "Take Another
-     * Picture" and "Quit" buttons in that layout
+     * Initializes the activity.
      *
-     * @param savedInstanceState A Bundle containing the activity's previously frozen state
+     * @param savedInstanceState Bundle
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

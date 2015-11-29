@@ -10,7 +10,8 @@ import android.view.animation.AnimationUtils;
 /**
  * Splash activity defines the splash screen
  *
- * @author Rebecca Ivans
+ * @author Los Pollos Hermanos
+ * @version S2
  */
 public class Splash extends AppCompatActivity {
 

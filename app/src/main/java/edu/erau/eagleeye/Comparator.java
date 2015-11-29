@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.widget.Toast;
 
 import org.opencv.android.Utils;
 import org.opencv.core.DMatch;
@@ -20,12 +19,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Mike R on 11/16/2015.
+ * The Comparator class utilizes the OpenCV open-source library to perform the comparison between the taken images
+ * and the reference image database.
+ *
+ * @author Los Pollos Hermanos
+ * @version S2
  */
 
 public class Comparator {
 
-    //method that performs the match if passed a context and an r file handle in a test
+    /**
+     * This method searches for a match of a drawable resource by accessing it by its R file identifier.
+     *
+     * @param newContext Context
+     * @param rfileHandle int
+     */
     public void attemptMatch(Context newContext, Integer rfileHandle) {
 
         //declare match percent, counter, buildingName string;
@@ -127,7 +135,14 @@ public class Comparator {
 
     }
 
-    //method that performs the match if passed a context and a file location
+    /**
+     * This method searches for a match of an image by accessing it by either its URI or by an actual Bitmap
+     * object passed to the method.
+     *
+     * @param newContext Context
+     * @param queryPicture Uri
+     * @param queryImageSmall Bitmap
+     */
     public void attemptMatch(Context newContext, Uri queryPicture, Bitmap queryImageSmall) {
 
         //declare match percent, counter, buildingName string;
