@@ -3,9 +3,12 @@ package edu.erau.eagleeye;
 import android.net.Uri;
 
 /**
- * ReferenceImageDatabase is the database that organizes the reference images used for comparison.
- * @author James Combs
- * @version 1.0
+ * This class is responsible for creating the database that will be used to store reference images used
+ * for comparison with user taken images. This image database will be utilized by the Comparator method
+ * to access reference images and their respective identifying attribute.
+ *
+ * @author Los Pollos Hermanos
+ * @version S2
  */
 public class ReferenceImageDatabase {
 
@@ -54,6 +57,10 @@ public class ReferenceImageDatabase {
 
     }
 
+    /**
+     * This method fills the reference image database array with values for image pointers, and a
+     * building number corresponding to each pointer.
+     */
     public void populate(){
 
         //populate the reference image array
@@ -119,6 +126,13 @@ public class ReferenceImageDatabase {
         this.referenceImages[29][1] = 300;
     }
 
+    /**
+     * Takes an integer value specifying the index of the array from which to extrapolate data, and
+     * returns the name of the building that corresponds to the data from that array index. This method
+     * is called in the Comparator method to set a variable for the building name in the GUI.
+     * @param i Integer code for a specific building
+     * @return String of title of building corresponding to i
+     */
     public String askMeANumberAndIllGiveYouAString(Integer i){
         String buildingName;
 

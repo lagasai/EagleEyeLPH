@@ -19,8 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The Comparator class utilizes the OpenCV open-source library to perform the comparison between the taken images
- * and the reference image database.
+ * Responsible for catching a reference image from the TakePicture activity, then comparing that image
+ * to various images saved in the ReferenceImageDatabase array of reference images. It utilizes the
+ * OpenCV open-source library to perform the comparison between the taken images and the reference images.
  *
  * @author Los Pollos Hermanos
  * @version S2
@@ -29,10 +30,13 @@ import java.util.List;
 public class Comparator {
 
     /**
-     * This method searches for a match of a drawable resource by accessing it by its R file identifier.
+     * This method is used when the TakePicture method is used to send a preloaded reference image using
+     * its testing function. This method runs through the database of images to find matches. It then
+     * sets global variables to reflect the correct match or lack thereof for use by the FoundBuilding
+     * or NoMatch activity.  It will then call the appropriate activity (either FoundBuilding or NoMatch).
      *
-     * @param newContext Context
-     * @param rfileHandle int
+     * @param newContext Context of calling activity
+     * @param rfileHandle The R.java file handle for a drawable resource
      */
     public void attemptMatch(Context newContext, Integer rfileHandle) {
 
@@ -136,12 +140,14 @@ public class Comparator {
     }
 
     /**
-     * This method searches for a match of an image by accessing it by either its URI or by an actual Bitmap
-     * object passed to the method.
+     * This method is used when the TakePicture method is used to send a user captured image using the
+     * devices camera intent. This method runs through the database of images to find matches. It then
+     * sets global variables to reflect the correct match or lack thereof for use by the FoundBuilding
+     * or NoMatch activity.  It will then call the appropriate activity (either FoundBuilding or NoMatch).
      *
-     * @param newContext Context
-     * @param queryPicture Uri
-     * @param queryImageSmall Bitmap
+     * @param newContext Context of calling activity
+     * @param queryPicture URI of captured photo file
+     * @param queryImageSmall Bitmap sample of captured photo
      */
     public void attemptMatch(Context newContext, Uri queryPicture, Bitmap queryImageSmall) {
 

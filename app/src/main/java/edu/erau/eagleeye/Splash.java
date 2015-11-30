@@ -8,7 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 /**
- * Splash activity defines the splash screen
+ * This activity is designed to display the Eagle Eye app logo for a short period of time before the app
+ * becomes usable.
  *
  * @author Los Pollos Hermanos
  * @version S2
@@ -16,7 +17,10 @@ import android.view.animation.AnimationUtils;
 public class Splash extends AppCompatActivity {
 
     /**
-     * Initializes activity
+     * This class is responsible for saving the previous activities state and loading the Splash activity
+     * for display to the user. It sets the GUI to the correct XML file, and the ImageView to display
+     * the application logo. It also sets the correct XML file for its “fade out” function. This activity
+     * is displayed briefly before loading the TakePicture activity.
      * @param savedInstanceState Bundle
      */
     @Override

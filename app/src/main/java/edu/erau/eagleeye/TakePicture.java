@@ -13,9 +13,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 /**
- * The TakePicture activity is the activity that is displayed when the app launches. It allows the user
- * to capture a picture using the device's default camera app. For testing purposes, tapping the logo
- * allows the user to bypass the camera and send a pretaken picture directly to Comaprator.
+ * This activity is responsible for calling the camera intent in the Android operating system. It allows
+ * the user to capture an image, and then calls upon the Comparator class object for analysis. It also
+ * for testing by passing a pre-loaded image to the Comparator class.
  *
  * @author Los Pollos Hermanos
  * @version S2
@@ -31,7 +31,13 @@ public class TakePicture extends AppCompatActivity {
     private Comparator c=new Comparator();
 
     /**
-     * Initializes the activity.
+     * This class is responsible for saving the previous activities state and loading the TakePicture
+     * activity for display to the user. It sets the GUI to the correct XML file, and adds button
+     * listeners for the takePictureButton, as well as a button listener for the application logo
+     * (this listener is used for testing purposes, as it will send a stock image to the comparator
+     * object instead of using the system camera for image capture), which prompts the user with a
+     * drop down menu for a reference image to be selected for comparison to the reference image database.
+     *
      * @param savedInstanceState Bundle
      */
     @Override
@@ -71,11 +77,12 @@ public class TakePicture extends AppCompatActivity {
     }
 
     /**
-     * This will handle the result of the camera intent. It saves the URI of the image and a bitmap
-     * thumbnail to this class' attributes, and it tells the Comparator to find a match for the captured photo.
-     * @param requestCode int
-     * @param resultCode int
-     * @param data Intent
+     * This method handles the result of the android operating system camera intent. It saves the Uri
+     * of the image that was taken, along with a thumbnail version of the image in bitmap format. It
+     * then will call the comparator object for image comparison with the reference database.
+     * @param requestCode Request code of calling intent
+     * @param resultCode Result code of calling intent
+     * @param data The Intent object containing all returned data
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -97,8 +104,9 @@ public class TakePicture extends AppCompatActivity {
     }
 
     /**
-     * This method provides a menu to bypass taking an image with the device's camera and instead performing
-     * a comparison with a pretaken photo.
+     * This method defines the content and functionality of the drop down menu that is displayed as a
+     * result on activating the app logo. It provides options for selecting stock images of various
+     * buildings to be sent to the bypassMethod.
      */
     private void cameraBypass() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -113,8 +121,9 @@ public class TakePicture extends AppCompatActivity {
     }
 
     /**
-     * This method sends the requested image via the bypass menu to the Comparator.
-     * @param i int
+     * This method handles sending the stock reference image to the comparator object for comparison
+     * to the reference database.
+     * @param i Index of selected building
      */
     private void bypassMethod(int i) {
         switch(i) {

@@ -18,8 +18,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * This class, NoMatch, is an activity that displays when no match has been found for the user
- * image.  It displays a short message along with the captured image.
+ * This activity is responsible for the GUI after no matches have been found from the TakePicture activity.
+ * It will display that no match has been found using the image taken by the user, and prompts the user
+ * with the option to take another picture to compare with the reference image database.
+ *
  * @author Los Pollos Hermanos
  * @version S2
  */
@@ -30,7 +32,12 @@ public class NoMatch extends AppCompatActivity {
     public static Bitmap queryImageSmall;
 
     /**
-     * Initializes the activity.
+     * This class is responsible for saving the previous activities state and loading the NoMatch activity
+     * for display to the user. It sets the GUI to the correct XML file, and the ImageView to display
+     * the query image Uri. This method detects whether TakePicture is functioning via testing mode, or
+     * not, and displays the reference picture that was not matched to the database back to the user with
+     * the option of capturing a new image via the TakePicture activity. This method also provides button
+     * listeners for the “Take Another Picture” button.
      *
      * @param savedInstanceState Bundle
      */

@@ -8,8 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * This activity is displayed upon a successful match. It shows the user a representative image of the
- * matched building, provides the name of the building, and provides a helpful fact about the building.
+ * This activity is responsible for the GUI after a match is made using the TakePicture activity. The
+ * GUI is designed to display the buildings: Name, Remark, and its reference image to the user.
+ *
  * @author Los Pollos Hermanos
  * @version S2
  */
@@ -22,7 +23,12 @@ public class FoundBuilding extends AppCompatActivity {
     public static Integer referencePic;
 
     /**
-     * Initializes the activity.
+     * This class is responsible for saving the previous activities state and loading the FoundBuilding
+     * activity for display to the user. It sets the GUI to the correct XML file, and the ImageView to
+     * display the query image Uri. It then loads the text boxes in the GUI with variables supplied by
+     * the Comparator method for display to the user. It also provides the functionality for taking
+     * another picture for comparison.
+     *
      * @param savedInstanceState Bundle
      */
     @Override
@@ -54,7 +60,7 @@ public class FoundBuilding extends AppCompatActivity {
      * This method catches the node object that has been detected as a match. Then sets the
      * variables for the building name and building remark to match those that are contained by the
      * node object.
-     * @param matchingNode INode
+     * @param matchingNode INode of matching building
      */
     public void catchBuildingInfo (INode matchingNode){
 
@@ -73,8 +79,9 @@ public class FoundBuilding extends AppCompatActivity {
     /**
      * This method is called whenever the values store in the variables buildingName and buildingRemark
      * are wished to be loaded into the text boxes present within this activity.
-     * @param name String
-     * @param remark String
+     *
+     * @param name Matched building's name
+     * @param remark Matched building's remark
      */
     public void setTextBoxes(String name, String remark){
         //create objects corresponding to each text box on this activity that need to be defined
